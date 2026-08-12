@@ -1,0 +1,380 @@
+
+======================================================================
+          TERRAFORM SECURITY SCANNER RESULTS
+======================================================================
+
+
+#################### KICS ####################
+
+[B01]
+  Total findings: 4
+  Severity: CRITICAL=0, HIGH=0, MEDIUM=2, LOW=1, INFO=1
+  - S3 Bucket Logging Disabled [MEDIUM]
+  - S3 Bucket Without Versioning [MEDIUM]
+  - IAM Access Analyzer Not Enabled [LOW]
+  - Resource Not Using Tags [INFO]
+
+[B02]
+  Total findings: 7
+  Severity: CRITICAL=0, HIGH=0, MEDIUM=0, LOW=2, INFO=5
+  - IAM Access Analyzer Not Enabled [LOW]
+  - Sensitive Port Is Exposed To Wide Private Network [LOW]
+  - Resource Not Using Tags [INFO]
+  - Security Group Not Used [INFO]
+  - Security Group Rule Without Description [INFO]
+  - Security Group Without Description [INFO]
+
+[B03]
+  Total findings: 2
+  Severity: CRITICAL=0, HIGH=0, MEDIUM=1, LOW=1, INFO=0
+  - IAM policy allows for data exfiltration [MEDIUM]
+  - IAM Access Analyzer Not Enabled [LOW]
+
+[B04]
+  Total findings: 8
+  Severity: CRITICAL=0, HIGH=1, MEDIUM=3, LOW=2, INFO=2
+  - DB Instance Storage Not Encrypted [HIGH]
+  - IAM Database Auth Not Enabled [MEDIUM]
+  - RDS With Backup Disabled [MEDIUM]
+  - RDS Without Logging [MEDIUM]
+  - IAM Access Analyzer Not Enabled [LOW]
+  - Tags Not Copied to RDS Cluster Snapshot [LOW]
+  - Resource Not Using Tags [INFO]
+  - Variable Without Description [INFO]
+
+[B05]
+  Total findings: 4
+  Severity: CRITICAL=0, HIGH=0, MEDIUM=2, LOW=1, INFO=1
+  - S3 Bucket Logging Disabled [MEDIUM]
+  - S3 Bucket Without Versioning [MEDIUM]
+  - IAM Access Analyzer Not Enabled [LOW]
+  - Resource Not Using Tags [INFO]
+
+[B06]
+  ✓ No findings
+
+[B07]
+  ✓ No findings
+
+[B08]
+  ✓ No findings
+
+[B09]
+  ✓ No findings
+
+[B10]
+  ✓ No findings
+
+[S01]
+  Total findings: 10
+  Severity: CRITICAL=1, HIGH=1, MEDIUM=6, LOW=1, INFO=1
+  - S3 Bucket Access to Any Principal [CRITICAL]
+  - S3 Bucket Allows Get Action From All Principals [HIGH]
+  - S3 Bucket Allows Public ACL [MEDIUM]
+  - S3 Bucket Allows Public Policy [MEDIUM]
+  - S3 Bucket Logging Disabled [MEDIUM]
+  - S3 Bucket Policy Accepts HTTP Requests [MEDIUM]
+  - S3 Bucket Without Ignore Public ACL [MEDIUM]
+  - S3 Bucket Without Versioning [MEDIUM]
+  - IAM Access Analyzer Not Enabled [LOW]
+  - Resource Not Using Tags [INFO]
+
+[S02]
+  Total findings: 9
+  Severity: CRITICAL=0, HIGH=2, MEDIUM=1, LOW=1, INFO=5
+  - Sensitive Port Is Exposed To Entire Network [HIGH]
+  - Unrestricted Security Group Ingress [HIGH]
+  - Security Group With Unrestricted Access To SSH [MEDIUM]
+  - IAM Access Analyzer Not Enabled [LOW]
+  - Resource Not Using Tags [INFO]
+  - Security Group Not Used [INFO]
+  - Security Group Rule Without Description [INFO]
+  - Security Group Without Description [INFO]
+
+[S03]
+  Total findings: 5
+  Severity: CRITICAL=0, HIGH=1, MEDIUM=2, LOW=2, INFO=0
+  - IAM Policy Grants Full Permissions [HIGH]
+  - IAM Policies With Full Privileges [MEDIUM]
+  - IAM policy allows for data exfiltration [MEDIUM]
+  - IAM Access Analyzer Not Enabled [LOW]
+  - Lambda IAM InvokeFunction Misconfigured [LOW]
+
+[S04]
+  Total findings: 10
+  Severity: CRITICAL=0, HIGH=2, MEDIUM=3, LOW=2, INFO=3
+  - DB Instance Storage Not Encrypted [HIGH]
+  - Passwords And Secrets - Generic Password [HIGH]
+  - IAM Database Auth Not Enabled [MEDIUM]
+  - RDS With Backup Disabled [MEDIUM]
+  - RDS Without Logging [MEDIUM]
+  - IAM Access Analyzer Not Enabled [LOW]
+  - Tags Not Copied to RDS Cluster Snapshot [LOW]
+  - Resource Not Using Tags [INFO]
+  - Variable Without Description [INFO]
+  - Variable Without Type [INFO]
+
+[S05]
+  Total findings: 4
+  Severity: CRITICAL=0, HIGH=0, MEDIUM=2, LOW=1, INFO=1
+  - S3 Bucket Logging Disabled [MEDIUM]
+  - S3 Bucket Without Versioning [MEDIUM]
+  - IAM Access Analyzer Not Enabled [LOW]
+  - Resource Not Using Tags [INFO]
+
+[S06]
+  ✓ No findings
+
+[S07]
+  ✓ No findings
+
+[S08]
+  ✓ No findings
+
+[S09]
+  ✓ No findings
+
+[S10]
+  ✓ No findings
+
+
+#################### TRIVY ####################
+
+[B01]
+  Total findings: 4
+  - Unencrypted S3 bucket. [HIGH] (AVD-AWS-0088)
+  - S3 Bucket Logging [LOW] (s3-bucket-logging)
+  - S3 Data should be versioned [MEDIUM] (AVD-AWS-0090)
+  - S3 encryption should use Customer Managed Keys [HIGH] (AVD-AWS-0132)
+
+[B02]
+  Total findings: 4
+  - Missing description for security group. [LOW] (AVD-AWS-0099)
+  - An egress security group rule allows traffic to /0. [CRITICAL] (AVD-AWS-0104)
+  - Missing description for security group rule. [LOW] (AVD-AWS-0124)
+  - Missing description for security group rule. [LOW] (AVD-AWS-0124)
+
+[B03]
+  ✓ No misconfigurations
+
+[B04]
+  Total findings: 5
+  - RDS Cluster and RDS instance should have backup retention longer than default 1 day [MEDIUM] (AVD-AWS-0077)
+  - RDS encryption has not been enabled at a DB Instance level. [HIGH] (AVD-AWS-0080)
+  - Enable Performance Insights to detect potential problems [LOW] (AVD-AWS-0133)
+  - RDS IAM Database Authentication Disabled [MEDIUM] (AVD-AWS-0176)
+  - RDS Deletion Protection Disabled [MEDIUM] (AVD-AWS-0177)
+
+[B05]
+  Total findings: 8
+  - S3 Access block should block public ACL [HIGH] (AVD-AWS-0086)
+  - S3 Access block should block public policy [HIGH] (AVD-AWS-0087)
+  - S3 Bucket Logging [LOW] (s3-bucket-logging)
+  - S3 Data should be versioned [MEDIUM] (AVD-AWS-0090)
+  - S3 Access Block should Ignore Public Acl [HIGH] (AVD-AWS-0091)
+  - S3 Access block should restrict public bucket to limit access [HIGH] (AVD-AWS-0093)
+  - S3 buckets should each define an aws_s3_bucket_public_access_block [LOW] (AVD-AWS-0094)
+  - S3 encryption should use Customer Managed Keys [HIGH] (AVD-AWS-0132)
+
+[B06]
+  ✓ No misconfigurations
+
+[B07]
+  ✓ No misconfigurations
+
+[B08]
+  ✓ No misconfigurations
+
+[B09]
+  ✓ No misconfigurations
+
+[B10]
+  ✓ No misconfigurations
+
+[S01]
+  Total findings: 8
+  - S3 Access block should block public ACL [HIGH] (AVD-AWS-0086)
+  - S3 Access block should block public policy [HIGH] (AVD-AWS-0087)
+  - Unencrypted S3 bucket. [HIGH] (AVD-AWS-0088)
+  - S3 Bucket Logging [LOW] (s3-bucket-logging)
+  - S3 Data should be versioned [MEDIUM] (AVD-AWS-0090)
+  - S3 Access Block should Ignore Public Acl [HIGH] (AVD-AWS-0091)
+  - S3 Access block should restrict public bucket to limit access [HIGH] (AVD-AWS-0093)
+  - S3 encryption should use Customer Managed Keys [HIGH] (AVD-AWS-0132)
+
+[S02]
+  Total findings: 5
+  - Missing description for security group. [LOW] (AVD-AWS-0099)
+  - An egress security group rule allows traffic to /0. [CRITICAL] (AVD-AWS-0104)
+  - An ingress security group rule allows traffic from /0. [CRITICAL] (AVD-AWS-0107)
+  - Missing description for security group rule. [LOW] (AVD-AWS-0124)
+  - Missing description for security group rule. [LOW] (AVD-AWS-0124)
+
+[S03]
+  ✓ No misconfigurations
+
+[S04]
+  Total findings: 5
+  - RDS Cluster and RDS instance should have backup retention longer than default 1 day [MEDIUM] (AVD-AWS-0077)
+  - RDS encryption has not been enabled at a DB Instance level. [HIGH] (AVD-AWS-0080)
+  - Enable Performance Insights to detect potential problems [LOW] (AVD-AWS-0133)
+  - RDS IAM Database Authentication Disabled [MEDIUM] (AVD-AWS-0176)
+  - RDS Deletion Protection Disabled [MEDIUM] (AVD-AWS-0177)
+
+[S05]
+  Total findings: 9
+  - S3 Access block should block public ACL [HIGH] (AVD-AWS-0086)
+  - S3 Access block should block public policy [HIGH] (AVD-AWS-0087)
+  - Unencrypted S3 bucket. [HIGH] (AVD-AWS-0088)
+  - S3 Bucket Logging [LOW] (s3-bucket-logging)
+  - S3 Data should be versioned [MEDIUM] (AVD-AWS-0090)
+  - S3 Access Block should Ignore Public Acl [HIGH] (AVD-AWS-0091)
+  - S3 Access block should restrict public bucket to limit access [HIGH] (AVD-AWS-0093)
+  - S3 buckets should each define an aws_s3_bucket_public_access_block [LOW] (AVD-AWS-0094)
+  - S3 encryption should use Customer Managed Keys [HIGH] (AVD-AWS-0132)
+
+[S06]
+  ✓ No misconfigurations
+
+[S07]
+  ✓ No misconfigurations
+
+[S08]
+  ✓ No misconfigurations
+
+[S09]
+  ✓ No misconfigurations
+
+[S10]
+  ✓ No misconfigurations
+
+
+#################### CHECKOV ####################
+
+[B01]
+  Total failed checks: 6
+  - Ensure S3 buckets should have event notifications enabled (CKV2_AWS_62)
+  - Ensure that an S3 bucket has a lifecycle configuration (CKV2_AWS_61)
+  - Ensure all data stored in the S3 bucket have versioning enabled (CKV_AWS_21)
+  - Ensure the S3 bucket has access logging enabled (CKV_AWS_18)
+  - Ensure that S3 bucket has cross-region replication enabled (CKV_AWS_144)
+  - Ensure that S3 buckets are encrypted with KMS by default (CKV_AWS_145)
+
+[B02]
+  Total failed checks: 3
+  - Ensure every security group and rule has a description (CKV_AWS_23)
+  - Ensure no security groups allow egress from 0.0.0.0:0 to port -1 (CKV_AWS_382)
+  - Ensure that Security Groups are attached to another resource (CKV2_AWS_5)
+
+[B03]
+  ✓ No failed checks
+
+[B04]
+  Total failed checks: 8
+  - Ensure RDS database has IAM authentication enabled (CKV_AWS_161)
+  - Ensure that enhanced monitoring is enabled for Amazon RDS instances (CKV_AWS_118)
+  - Ensure all data stored in the RDS is securely encrypted at rest (CKV_AWS_16)
+  - Ensure that respective logs of Amazon Relational Database Service (Amazon RDS) are enabled (CKV_AWS_129)
+  - Ensure that RDS instances have Multi-AZ enabled (CKV_AWS_157)
+  - Ensure DB instance gets all minor upgrades automatically (CKV_AWS_226)
+  - Ensure that AWS database instances have deletion protection enabled (CKV_AWS_293)
+  - Ensure RDS instance with copy tags to snapshots is enabled (CKV2_AWS_60)
+
+[B05]
+  Total failed checks: 7
+  - Ensure that S3 bucket has a Public Access block (CKV2_AWS_6)
+  - Ensure S3 buckets should have event notifications enabled (CKV2_AWS_62)
+  - Ensure all data stored in the S3 bucket have versioning enabled (CKV_AWS_21)
+  - Ensure the S3 bucket has access logging enabled (CKV_AWS_18)
+  - Ensure that an S3 bucket has a lifecycle configuration (CKV2_AWS_61)
+  - Ensure that S3 bucket has cross-region replication enabled (CKV_AWS_144)
+  - Ensure that S3 buckets are encrypted with KMS by default (CKV_AWS_145)
+
+[B06]
+  ✓ No failed checks
+
+[B07]
+  ✓ No failed checks
+
+[B08]
+  ✓ No failed checks
+
+[B09]
+  ✓ No failed checks
+
+[B10]
+  ✓ No failed checks
+
+[S01]
+  Total failed checks: 12
+  - Ensure S3 bucket has 'restrict_public_buckets' enabled (CKV_AWS_56)
+  - Ensure S3 bucket has ignore public ACLs enabled (CKV_AWS_55)
+  - Ensure S3 bucket has block public ACLS enabled (CKV_AWS_53)
+  - Ensure S3 bucket has block public policy enabled (CKV_AWS_54)
+  - Ensure S3 bucket does not allow an action with any Principal (CKV_AWS_70)
+  - Ensure all data stored in the S3 bucket have versioning enabled (CKV_AWS_21)
+  - Ensure S3 buckets should have event notifications enabled (CKV2_AWS_62)
+  - Ensure that S3 buckets are encrypted with KMS by default (CKV_AWS_145)
+  - Ensure that S3 bucket has a Public Access block (CKV2_AWS_6)
+  - Ensure the S3 bucket has access logging enabled (CKV_AWS_18)
+  - Ensure that an S3 bucket has a lifecycle configuration (CKV2_AWS_61)
+  - Ensure that S3 bucket has cross-region replication enabled (CKV_AWS_144)
+
+[S02]
+  Total failed checks: 4
+  - Ensure every security group and rule has a description (CKV_AWS_23)
+  - Ensure no security groups allow ingress from 0.0.0.0:0 to port 22 (CKV_AWS_24)
+  - Ensure no security groups allow egress from 0.0.0.0:0 to port -1 (CKV_AWS_382)
+  - Ensure that Security Groups are attached to another resource (CKV2_AWS_5)
+
+[S03]
+  Total failed checks: 9
+  - Ensure IAM policies does not allow credentials exposure (CKV_AWS_287)
+  - Ensure no IAM policies documents allow "*" as a statement's actions (CKV_AWS_63)
+  - Ensure IAM policies does not allow privilege escalation (CKV_AWS_286)
+  - Ensure IAM policies does not allow permissions management / resource exposure without constraints (CKV_AWS_289)
+  - Ensure IAM policies does not allow data exfiltration (CKV_AWS_288)
+  - Ensure IAM policies that allow full "*-*" administrative privileges are not created (CKV_AWS_62)
+  - Ensure IAM policies does not allow write access without constraints (CKV_AWS_290)
+  - Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions (CKV_AWS_355)
+  - Ensure AWS IAM policy does not allow full IAM privileges (CKV2_AWS_40)
+
+[S04]
+  Total failed checks: 8
+  - Ensure RDS database has IAM authentication enabled (CKV_AWS_161)
+  - Ensure that enhanced monitoring is enabled for Amazon RDS instances (CKV_AWS_118)
+  - Ensure all data stored in the RDS is securely encrypted at rest (CKV_AWS_16)
+  - Ensure that respective logs of Amazon Relational Database Service (Amazon RDS) are enabled (CKV_AWS_129)
+  - Ensure that RDS instances have Multi-AZ enabled (CKV_AWS_157)
+  - Ensure DB instance gets all minor upgrades automatically (CKV_AWS_226)
+  - Ensure that AWS database instances have deletion protection enabled (CKV_AWS_293)
+  - Ensure RDS instance with copy tags to snapshots is enabled (CKV2_AWS_60)
+
+[S05]
+  Total failed checks: 7
+  - Ensure that S3 bucket has a Public Access block (CKV2_AWS_6)
+  - Ensure S3 buckets should have event notifications enabled (CKV2_AWS_62)
+  - Ensure all data stored in the S3 bucket have versioning enabled (CKV_AWS_21)
+  - Ensure the S3 bucket has access logging enabled (CKV_AWS_18)
+  - Ensure that an S3 bucket has a lifecycle configuration (CKV2_AWS_61)
+  - Ensure that S3 buckets are encrypted with KMS by default (CKV_AWS_145)
+  - Ensure that S3 bucket has cross-region replication enabled (CKV_AWS_144)
+
+[S06]
+  ✓ No failed checks
+
+[S07]
+  ✓ No failed checks
+
+[S08]
+  ✓ No failed checks
+
+[S09]
+  ✓ No failed checks
+
+[S10]
+  ✓ No failed checks
+
+======================================================================
+                       COMPLETE
+======================================================================
